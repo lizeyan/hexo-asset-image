@@ -37,7 +37,7 @@ hexo.extend.filter.register('after_post_render', function(data){
 			  var linkArray = link.split('/').filter(function(elem){
 				return elem != '';
 			  });
-			  linkArray = linkArray.slice(0, -1)
+			  linkArray = linkArray.slice(1, -1)
 			  var srcArray = src.split('/').filter(function(elem){
 				return elem != '' && elem != '.';
 			  });
