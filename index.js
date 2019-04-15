@@ -18,7 +18,7 @@ hexo.extend.filter.register('after_post_render', function(data){
     var toprocess = ['excerpt', 'more', 'content'];
     for(var i = 0; i < toprocess.length; i++){
       var key = toprocess[i];
- 
+
       var $ = cheerio.load(data[key], {
         ignoreWhitespace: false,
         xmlMode: false,
@@ -37,15 +37,14 @@ hexo.extend.filter.register('after_post_render', function(data){
 			  var linkArray = link.split('/').filter(function(elem){
 				return elem != '';
 			  });
-			  linkArray = linkArray.slice(1, -1)
 			  var srcArray = src.split('/').filter(function(elem){
 				return elem != '' && elem != '.';
 			  });
 			  if(srcArray.length > 1)
 				srcArray.shift();
 			  src = srcArray.join('/');
-			  $(this).attr('src', config.root + link + src);
-			  console.info&&console.info("update link as:-->"+config.root + link + src);
+			  $(this).attr('src', '/' + link + src);
+			  console.info&&console.info("update link as:-->"+ '/' + link + src);
 			}
 		}else{
 			console.info&&console.info("no src attr, skipped...");
